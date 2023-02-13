@@ -10,6 +10,16 @@ public class Game : MonoBehaviour
         
     }
 
+    public void reset(){
+
+    }
+
+    public void NPC_Location(){
+
+    }
+
+    
+
     // Update is called once per frame
     void Update()
     {
