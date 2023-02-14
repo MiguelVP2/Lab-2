@@ -47,6 +47,17 @@ public class GameManager : MonoBehaviour
                 oh++;
             }
         }
+        oh = 2.5f;
+        oh7 = 10.5f;
+        for (int i = 0; i < 20; i++) {
+            Vector2 p = new Vector2(oh,oh7);
+            posList.Add(p);
+            oh7++;
+            if (oh7 > 12){
+                oh7 = 10.5f;
+                oh++;
+            }
+        }
     }
 
     // Update is called once per frame
