@@ -35,16 +35,16 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        float oh = 0.5f;
-        float oh7 = 0.5f;
+        float oh = 2.5f;
+        float oh7 = 3.5f;
         positionNumber = 0;
-        for (int i = 0; i < 36; i++) {
+        for (int i = 0; i < 20; i++) {
             Vector2 p = new Vector2(oh,oh7);
             posList.Add(p);
-            oh++;
-            if (oh > 6){
-                oh = 0.5f;
-                oh7++;
+            oh7++;
+            if (oh7 > 5){
+                oh7 = 3.5f;
+                oh++;
             }
         }
     }
