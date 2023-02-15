@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class walkingGrass : MonoBehaviour
 {
+    private AudioSource audio;
 
     private bool click = false;
     private bool inGrass = false;
@@ -19,7 +20,8 @@ public class walkingGrass : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collider2D) {
         print("Entered..");
         if (collider2D.gameObject.CompareTag("Player")) {
-            //audio play
+            print("char");
+            audio.Play();
             inGrass = true;
 
         }
