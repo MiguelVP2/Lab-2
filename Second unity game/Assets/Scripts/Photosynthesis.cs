@@ -9,6 +9,10 @@ public class Photosynthesis : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        createGrass();
+    }
+
+    public void createGrass(){
         for (int i = 0; i < 60; i++){
             Instantiate(grass);
         }

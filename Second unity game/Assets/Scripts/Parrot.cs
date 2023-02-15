@@ -9,6 +9,7 @@ public class Parrot : MonoBehaviour
     private Rigidbody2D body;
     public float horizontal;
     public float vertical;
+    public bool gameStop = false;
 
     private float moveLimiter = 0.7f;
 
@@ -28,12 +29,24 @@ public class Parrot : MonoBehaviour
         
     }
 
+    public void StopMoving(){
+        gameStop = true;
+        body.velocity = new Vector2(0, 0);
+    }
+
+    public void StartMoving(){
+        gameStop = false;
+        transform.position = new Vector2(-3, -1);
+    }
+
     void FixedUpdate() {
         if (horizontal != 0 && vertical != 0) {
             horizontal *= moveLimiter;
             vertical *= moveLimiter;
         }
 
-        body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+        if (!gameStop){
+            body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+        }
     }
 }

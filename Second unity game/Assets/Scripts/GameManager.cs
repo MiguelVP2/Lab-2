@@ -8,6 +8,10 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance {get; private set;}
 
     public GameObject banner;
+    public GameObject banner2;
+    public GameObject npc;
+    public GameObject player;
+    public GameObject grassGrower;
 
     public int grass = 0;
 
@@ -31,15 +35,30 @@ public class GameManager : MonoBehaviour
         return posList[(positionNumber - 1)];
     }
 
+    public void StopGame(){
+        npc.GetComponent<EnemyMovement>().StopMoving();
+        player.GetComponent<Parrot>().StopMoving();
+    }
+
     public void reset() {
         positionNumber = 0;
         grass = 0;
+        banner.SetActive(false);
+        banner2.SetActive(false);
+        npc.GetComponent<EnemyMovement>().StartMoving();
+        player.GetComponent<Parrot>().StartMoving();
+        GameObject[] others = GameObject.FindGameObjectsWithTag("grass");
+        foreach(GameObject grasses in others) {
+            GameObject.Destroy(grasses);
+        }
+        grassGrower.GetComponent<Photosynthesis>().createGrass();
     }
 
     public void CountUp(){
         grass++;
         if (grass > 59){
-            print("you win!");
+            banner2.SetActive(true);
+            StopGame();
         }
     }
 
@@ -48,6 +67,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         banner.SetActive(false);
+        banner2.SetActive(false);
         float oh = 2.5f;
         float oh7 = 3.5f;
         positionNumber = 0;

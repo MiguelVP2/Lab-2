@@ -26,6 +26,14 @@ public class EnemyMovement : MonoBehaviour
         qlocs.Enqueue(pong);
     }
 
+    public void StopMoving(){
+        StopAllCoroutines();
+    }
+
+    public void StartMoving(){
+        Start();
+    }
+
     IEnumerator LerpPosition(Vector2 targetPosition)
     {
         float time = 0;

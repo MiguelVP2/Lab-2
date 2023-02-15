@@ -6,20 +6,7 @@ using static UnityEngine.Input;
 public class walkingGrass : MonoBehaviour
 {
 
-    private bool click = false;
     private bool inGrass = false;
-
-    void OnMouseDown(){
-        click = true;
-    }
-
-    void OnMouseUp(){
-        click = false;
-    }
-
-    void OnButtonClick(){
-        click = true;
-    }
 
     public void OnTriggerEnter2D(Collider2D collider2D) {
         if (collider2D.gameObject.CompareTag("Player")) {
@@ -47,16 +34,10 @@ public class walkingGrass : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        // Mouse mouse = Mouse.current;
-        // if (mouse.leftButton.wasPressedThisFrame){
-        //     click = true;
-        // }
-        
+
         if (Input.GetMouseButtonDown(0)){
             if (inGrass){
                 GameManager.Instance.CountUp();
-                //click = false;
                 Destroy(gameObject);
                 //particle effect
             }
