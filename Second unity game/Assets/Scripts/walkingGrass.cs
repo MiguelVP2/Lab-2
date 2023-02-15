@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Input;
 
 public class walkingGrass : MonoBehaviour
 {
@@ -16,10 +17,12 @@ public class walkingGrass : MonoBehaviour
         click = false;
     }
 
+    void OnButtonClick(){
+        click = true;
+    }
+
     public void OnTriggerEnter2D(Collider2D collider2D) {
-        print("Entered..");
         if (collider2D.gameObject.CompareTag("Player")) {
-            print("char");
             GetComponent<AudioSource>().Play();
             inGrass = true;
 
@@ -44,10 +47,19 @@ public class walkingGrass : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (click && inGrass){
+        
+        // Mouse mouse = Mouse.current;
+        // if (mouse.leftButton.wasPressedThisFrame){
+        //     click = true;
+        // }
+        
+        if (Input.GetMouseButtonDown(0)){
+            if (inGrass){
+                GameManager.Instance.CountUp();
+                //click = false;
                 Destroy(gameObject);
                 //particle effect
-                GameManager.Instance.CountUp();
             }
+        }
     }
 }

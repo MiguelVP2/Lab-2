@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     public void CountUp(){
         grass++;
         if (grass > 59){
-            //you win!
+            print("you win!");
         }
     }
 
