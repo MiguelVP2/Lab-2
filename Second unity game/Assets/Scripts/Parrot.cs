@@ -24,6 +24,7 @@ public class Parrot : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
+        //trail effect
         
     }
 

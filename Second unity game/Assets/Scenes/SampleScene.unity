@@ -928,9 +928,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8220cc18fe006884398db6ab7e32f7b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontal: 0
-  vertical: 0
-  runSpeed: 5
 --- !u!212 &187127555
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1620,6 +1617,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f76df079449cff64a85a3416976c44b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  banner: {fileID: 152322126}
+  grass: 0
   posList: []
 --- !u!4 &1314227744
 Transform:
@@ -13053,6 +13052,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2008108691}
   - component: {fileID: 2008108690}
+  - component: {fileID: 2008108693}
+  - component: {fileID: 2008108692}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -13127,3 +13128,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &2008108692
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008108689}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &2008108693
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008108689}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 5
