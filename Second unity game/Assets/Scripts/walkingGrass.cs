@@ -7,6 +7,8 @@ public class walkingGrass : MonoBehaviour
 {
 
     private bool inGrass = false;
+    public GameObject grass_blade;
+    public GameObject grass;
 
     public void OnTriggerEnter2D(Collider2D collider2D) {
         if (collider2D.gameObject.CompareTag("Player")) {
@@ -29,16 +31,22 @@ public class walkingGrass : MonoBehaviour
         print("got pos");
         transform.position = new Vector2(pos.x, pos.y);
         print("moved");
+        anything = pos;
     }
 
     // Update is called once per frame
+    private Vector2 anything;
     void Update()
     {
 
         if (Input.GetMouseButtonDown(0)){
             if (inGrass){
                 GameManager.Instance.CountUp();
+                Sword.Sword1.Swinging();
+                //Instantiate(grass_blade, GameObject.Find("grass").transform);
+
                 Destroy(gameObject);
+
                 //particle effect
             }
         }

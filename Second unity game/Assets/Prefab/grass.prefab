@@ -125,6 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab631246054d3c94486e1cfc60bdc508, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grass_blade: {fileID: 690428696369505401, guid: 9c8c25acb12e1494099573eaa55ab97d, type: 3}
+  grass: {fileID: 5835172849403354762}
 --- !u!82 &5239191681497025980
 AudioSource:
   m_ObjectHideFlags: 0
