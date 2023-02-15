@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -12,6 +13,9 @@ public class GameManager : MonoBehaviour
     public GameObject npc;
     public GameObject player;
     public GameObject grassGrower;
+
+    public GameObject dialogBox;
+    public TextMeshProUGUI dialogText;
 
     public int grass = 0;
 
@@ -40,7 +44,26 @@ public class GameManager : MonoBehaviour
         player.GetComponent<Parrot>().StopMoving();
     }
 
+    public void DialogShow(string text) {
+        dialogBox.SetActive(true);
+        StopAllCoroutines();
+        StartCoroutine(TypeText(text));
+    }
+
+    public void DialogHide() {
+        dialogBox.SetActive(false);
+    }
+
+    IEnumerator TypeText(string text) {
+        dialogText.text = "";
+        foreach (char c in text.ToCharArray()) {
+            dialogText.text += c;
+            yield return new WaitForSeconds(0.02f);
+        }
+    }
+
     public void reset() {
+        DialogHide();
         positionNumber = 0;
         grass = 0;
         banner.SetActive(false);

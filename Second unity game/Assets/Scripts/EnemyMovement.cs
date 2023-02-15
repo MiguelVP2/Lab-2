@@ -6,7 +6,11 @@ public class EnemyMovement : MonoBehaviour
 {
     public List<GameObject> locs;
     private Queue<GameObject> qlocs;
+
     public float duration = 5;
+    
+    public string text;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +38,14 @@ public class EnemyMovement : MonoBehaviour
         Start();
     }
 
+    public void OnTriggerEnter2D(Collider2D collider2D) {
+        print("Found..");
+        if (collider2D.gameObject.CompareTag("Player")) {
+            GameManager.Instance.DialogShow(text);
+            GameManager.Instance.StopGame();
+        }
+    }
+
     IEnumerator LerpPosition(Vector2 targetPosition)
     {
         float time = 0;
@@ -48,6 +60,8 @@ public class EnemyMovement : MonoBehaviour
         transform.position = targetPosition;
         NextUp();
     }
+
+
 
 
     // Update is called once per frame
